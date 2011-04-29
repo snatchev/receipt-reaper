@@ -1,0 +1,54 @@
+body {
+  font-family: Tahoma;
+  background: url(/images/background.jpg) repeat;
+}
+form {
+  height: 240px;
+  background-color: #d9b778;
+  width: 250px;
+  margin-left: 76px;
+  border-radius: 15px;
+  text-align: center;
+  padding-top: 6pt;
+}
+form input {
+  font-size: 18pt;
+  background-color: #fff8ee;
+}
+form select {
+  font-size: 11pt;
+  font-color: #d9b778;
+  background-color: #ecf1ff;
+}
+input::-webkit-input-placeholder {
+  font-style: italic;
+  font-size: 11pt;
+}
+form .w100 { width: 95%;}
+form .w66 { width: 60%;}
+form .w34 { width: 30%;}
+table {
+  border: solid #caebf3 5px;
+  background-color: white;
+  width: 900px;
+  border-collapse: collapse;
+}
+table thead {
+  background-color: #caebf3;
+}
+table tbody {
+}
+table tr.odd { background-color: #fff8ee;}
+table .money {
+  text-align: right;
+}
+
+.left-col {
+  float: left;
+  background: url(/images/reaper.png) no-repeat;
+  width: 420px;
+  padding-top: 185px;
+}
+
+.field_with_errors { display: inline; }
+.field_with_errors input::-webkit-input-placeholder { color:red;}

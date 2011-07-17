@@ -33,8 +33,14 @@
           <td><%= receipt.name || 'N/A' %></td>
           <td><%= receipt.category %></td>
           <td class="money"><%= "$%0.2f" % receipt.amount rescue nil %></td>
-          <td>sample account</td>
-          <td><%= receipt.notes %></td>
+          <td class="center">sample account</td>
+          <td class="notes">
+            <%= receipt.notes %>
+            <div class="nubbin">
+              <%= link_to image_tag("cross.png"), receipt_path(receipt), :method => :delete, :confirm => "are you sure?" %>
+              <%= link_to image_tag("pencil.png"), edit_receipt_path(receipt) %>
+            </div>
+          </td>
         </tr>
       <% end %>
     </tbody>

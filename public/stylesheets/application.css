@@ -52,3 +52,26 @@ table .money {
 
 .field_with_errors { display: inline; }
 .field_with_errors input::-webkit-input-placeholder { color:red;}
+
+.center {
+  text-align: center;
+}
+
+.notes {
+  position: relative;
+  background-color:inherit;
+}
+
+.nubbin {
+  position: absolute;
+  top: 0px;
+  right: -38px;
+  width: 38px;
+  display: none;
+  /*background-color:inherit;*/
+}
+.nubbin img {
+  float:right;
+}
+
+tr:hover .nubbin { display: block; }

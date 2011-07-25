@@ -43,6 +43,7 @@ GEM
     childprocess (0.1.8)
       ffi (~> 1.0.6)
     chronic (0.3.0)
+    configuration (1.2.0)
     cucumber (0.10.2)
       builder (>= 2.1.2)
       diff-lcs (>= 1.1.2)
@@ -59,12 +60,19 @@ GEM
       rake (>= 0.8.7)
     gherkin (2.3.7)
       json (>= 1.4.6)
+    heroku (2.4.0)
+      launchy (>= 0.3.2)
+      rest-client (~> 1.6.1)
+      term-ansicolor (~> 1.0.5)
     i18n (0.5.0)
     jquery-rails (1.0.12)
       railties (~> 3.0)
       thor (~> 0.14)
     json (1.5.1)
     json_pure (1.5.1)
+    launchy (0.4.0)
+      configuration (>= 0.0.5)
+      rake (>= 0.8.1)
     mail (2.2.15)
       activesupport (>= 2.3.6)
       i18n (>= 0.4.0)
@@ -92,6 +100,8 @@ GEM
       rake (>= 0.8.7)
       thor (~> 0.14.4)
     rake (0.8.7)
+    rest-client (1.6.3)
+      mime-types (>= 1.16)
     rubyzip (0.9.4)
     selenium-webdriver (0.2.0)
       childprocess (>= 0.1.7)
@@ -114,6 +124,7 @@ DEPENDENCIES
   capybara
   chronic
   cucumber-rails
+  heroku
   jquery-rails
   rails (= 3.0.5)
   sqlite3

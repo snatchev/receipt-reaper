@@ -1,0 +1,26 @@
+<script type="text/javascript">
+  $(function(){
+    $(".edit_category input[type=submit]").hide();
+    $(".edit_category input[type=text]").change(function(){
+      $(this).parent().find("input[type=submit]").show();
+      });
+  });
+</script>
+<h1>Categories</h1>
+<ol>
+  <% @categories.each do |category| %>
+    <li>
+      <%= form_for category do |f| %>
+        <%= f.text_field :name %>
+        <%= f.submit 'save' %>
+        <%= link_to 'delete', category_path(category), :method => :delete, :confirm => 'Barf it?' %>
+      <% end %>
+    </li>
+  <% end %>
+</ol>
+
+<h2>New Category</h2>
+<%= form_for @new_category do |f| %>
+  <%= f.text_field :name %>
+  <%= f.submit %>
+<% end %>

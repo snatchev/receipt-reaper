@@ -21,6 +21,10 @@ body {
   background-color: #ecf1ff;
   width: 80%;
 }
+.reaper form label {
+  display: none;  /* hide the labels, only used for cukes */
+}
+
 input::-webkit-input-placeholder {
   font-style: italic;
   font-size: 11pt;

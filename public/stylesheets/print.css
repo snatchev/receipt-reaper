@@ -1,0 +1,14 @@
+form, .nubbin, .print {
+  display: none;
+}
+.table {
+  width: 100%;
+}
+
+.money {
+  text-align: right;
+  font-family: monospace;
+}
+td {
+  border-bottom: solid 1px #ccc;
+}

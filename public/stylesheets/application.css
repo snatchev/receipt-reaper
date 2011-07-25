@@ -2,7 +2,7 @@ body {
   font-family: Tahoma;
   background: url(/images/background.jpg) repeat;
 }
-form {
+.reaper form {
   height: 240px;
   background-color: #d9b778;
   width: 250px;
@@ -11,14 +11,15 @@ form {
   text-align: center;
   padding-top: 6pt;
 }
-form input {
+.reaper form input {
   font-size: 18pt;
   background-color: #fff8ee;
 }
-form select {
+.reaper form select {
   font-size: 11pt;
   font-color: #d9b778;
   background-color: #ecf1ff;
+  width: 80%;
 }
 input::-webkit-input-placeholder {
   font-style: italic;
@@ -33,7 +34,7 @@ table {
   width: 900px;
   border-collapse: collapse;
 }
-table thead {
+table thead, table tfoot {
   background-color: #caebf3;
 }
 table tbody {
@@ -48,6 +49,15 @@ table .money {
   background: url(/images/reaper.png) no-repeat;
   width: 420px;
   padding-top: 185px;
+}
+
+.table {
+  float: left;
+  width: 960px;
+}
+
+.print {
+  padding-left: 880px;
 }
 
 .field_with_errors { display: inline; }
@@ -65,13 +75,14 @@ table .money {
 .nubbin {
   position: absolute;
   top: 0px;
-  right: -38px;
-  width: 38px;
+  right: -48px;
+  width: 48px;
   display: none;
   /*background-color:inherit;*/
 }
 .nubbin img {
   float:right;
+  padding: 3px;
 }
 
 tr:hover .nubbin { display: block; }

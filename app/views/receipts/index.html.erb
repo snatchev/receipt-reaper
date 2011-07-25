@@ -1,27 +1,31 @@
-<div class="left-col">
+<div class="left-col reaper">
   <%= form_for @receipt do |f| %>
+    <%= f.label :name, "Location" %>
     <%= f.text_field :name, :class =>"w100", :placeholder => "Where was your purchase?" %>
     <br/>
+    <%= f.label :purchase_date, "Date" %>
     <%= f.text_field :purchase_date, :class =>"w66", :placeholder =>"mm/dd/yyyy" %>
+    <%= f.label :amount, 'Price' %>
     <%= f.text_field :amount, :class =>"w34", :placeholder =>"$0.00" %>
     <br/>
     <%= category_select(Category.all) %>
     <%#= f.collection_select :category_id, Category.all, :id, :name, {:include_blank => true}%>
     <br/>
     <%= f.text_field :notes, :class =>"w100", :placeholder =>"write notes here..." %>
-    <%= submit_tag %>
+    <%= submit_tag 'om nom nom!' %>
   <% end %>
 
 </div>
 <div class="table">
-  <h1>Turtle Stack</h1>
+  <h1>Company: Turtle Stack</h1>
+  <%= link_to_function image_tag('printer.png'), 'window.print()', :class => 'print' %>
   <table>
     <thead>
       <tr>
-        <th>Date</th>
-        <th>Item</th>
+        <th><%= link_to '^', :sort => 'date' %>Date</th>
+        <th>Location</th>
         <th>Category</th>
-        <th>Amount</th>
+        <th>Price</th>
         <th>Payment Type</th>
         <th>Notes</th>
       </tr>
@@ -29,11 +33,11 @@
     <tbody>
       <% @receipts.each do |receipt| %>
         <tr class="<%= cycle(:odd, :even) %>">
-          <td><%= receipt.purchase_date.strftime "%m/%d/%Y" rescue nil %></td>
-          <td><%= receipt.name || 'N/A' %></td>
-          <td><%= receipt.category %></td>
-          <td class="money"><%= "$%0.2f" % receipt.amount rescue nil %></td>
-          <td class="center">sample account</td>
+          <td class='Date'><%= receipt.purchase_date.strftime "%m/%d/%Y" rescue nil %></td>
+          <td class='Location'><%= receipt.name || 'N/A' %></td>
+          <td class='Category'><%= receipt.category %></td>
+          <td class="Price money"><%= "$%0.2f" % receipt.amount rescue nil %></td>
+          <td class="Payment center">sample account</td>
           <td class="notes">
             <%= receipt.notes %>
             <div class="nubbin">
@@ -44,5 +48,15 @@
         </tr>
       <% end %>
     </tbody>
-    </table>
+    <tfoot>
+      <tr>
+        <th>Total</th>
+        <th></th>
+        <th></th>
+        <th class="money"><%= "$%0.2f" % @total %></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </tfoot>
+  </table>
 </div>

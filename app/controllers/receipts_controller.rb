@@ -2,6 +2,7 @@ class ReceiptsController < ApplicationController
   def index
     @receipt = Receipt.new
     @receipts = Receipt.all
+    @total = Receipt.sum(:amount)
   end
 
   def create

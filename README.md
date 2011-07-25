@@ -5,7 +5,7 @@ The goal is to build something purposeful that touches upon the many aspects of 
 Installation
 ===
 
-Pre-requisties
+Prerequisites
 ---
 
 1. gcc

@@ -1,4 +1,5 @@
 $(function(){
+  //TODO: extract common behaviour
   $('#receipt_category_id').change(function(){
     var $self = $(this);
     if($self.val() == "Add New"){
@@ -14,4 +15,20 @@ $(function(){
       }
     }
   })
+
+  $('#receipt_account_id').change(function(){
+    var $self = $(this);
+    if($self.find(":selected").text() == "-- Add New --"){
+      var accountName = prompt("Account name");
+      if(accountName != null && accountName  != ""){
+        $.post('/accounts', {'account[name]': accountName}, function(data){
+          $("<option></option>")
+            .attr("value", data.account.id)
+            .text(data.account.name)
+            .prependTo($self);
+          $self.val(data.account.id);
+        }, 'json');
+      }
+    }
+  });
 });

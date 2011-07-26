@@ -2,6 +2,8 @@ class ReceiptsController < ApplicationController
   def index
     @receipt = Receipt.new
     @receipts = Receipt.order(params[:sort]).all
+    @accounts = Account.all
+    @accounts << Account.new(:name => "-- Add New --")
     @total = Receipt.sum(:amount)
   end
 

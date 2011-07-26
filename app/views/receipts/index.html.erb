@@ -9,7 +9,7 @@
     <%= f.text_field :amount, :class =>"w34", :placeholder =>"$0.00" %>
     <br/>
     <%= category_select(Category.all) %>
-    <%#= f.collection_select :category_id, Category.all, :id, :name, {:include_blank => true}%>
+    <%= f.collection_select :account_id, @accounts, :id, :name, {:prompt => '-- select account --', :include_blank => true} %>
     <br/>
     <%= f.text_field :notes, :class =>"w100", :placeholder =>"write notes here..." %>
     <%= submit_tag 'om nom nom!' %>
@@ -26,7 +26,7 @@
         <th>Location</th>
         <th>Category</th>
         <th>Price</th>
-        <th>Payment Type</th>
+        <th>Account</th>
         <th>Notes</th>
       </tr>
     </thead>
@@ -37,7 +37,7 @@
           <td class='Location'><%= receipt.name || 'N/A' %></td>
           <td class='Category'><%= receipt.category %></td>
           <td class="Price money"><%= "$%0.2f" % receipt.amount rescue nil %></td>
-          <td class="Payment center">sample account</td>
+          <td class="Account center"><%= receipt.account %></td>
           <td class="notes">
             <%= receipt.notes %>
             <div class="nubbin">

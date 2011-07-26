@@ -1,5 +1,6 @@
 class Receipt < ActiveRecord::Base
   belongs_to :category
+  belongs_to :account
 
   validates_presence_of :amount, :name
 

@@ -1,7 +1,7 @@
 class ReceiptsController < ApplicationController
   def index
     @receipt = Receipt.new
-    @receipts = Receipt.all
+    @receipts = Receipt.order(params[:sort]).all
     @total = Receipt.sum(:amount)
   end
 

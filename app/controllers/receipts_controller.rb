@@ -20,6 +20,9 @@ class ReceiptsController < ApplicationController
   def edit
     @receipt = Receipt.find(params[:id])
     @receipts = Receipt.all
+    @accounts = Account.all
+    @accounts << Account.new(:name => "-- Add New --")
+    @total = Receipt.sum(:amount)
     render :action => 'index'
   end
 

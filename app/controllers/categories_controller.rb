@@ -7,7 +7,7 @@ class CategoriesController < ApplicationController
   def create
     @category = Category.create(params[:category])
     respond_to do |format|
-      format.js { render :json => @category.to_json}
+      format.js { render :json => @category }
       format.html { redirect_to categories_path }
     end
   end

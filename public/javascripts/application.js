@@ -4,7 +4,7 @@ $(function(){
     if($self.val() == "Add New"){
       var categoryName = prompt("Category name");
       if(categoryName != null && categoryName != ""){
-        $.post('/categories', {category_name: categoryName}, function(data){
+        $.post('/categories', {'category[name]': categoryName}, function(data){
           $("<option></option>")
             .attr("value", data.category.id)
             .text(data.category.name)

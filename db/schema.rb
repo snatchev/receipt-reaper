@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(:version => 20110323024504) do
 
   create_table "categories", :force => true do |t|
     t.string "name"
+    t.string "group"
   end
 
   create_table "receipts", :force => true do |t|

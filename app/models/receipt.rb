@@ -18,7 +18,15 @@ class Receipt < ActiveRecord::Base
   end
 
   def purchase_date=(date)
-    if date.is_a?(String)
+    case date
+    when /(\d{2})(\d{2})(\d{2,4})/
+      year   = $3        if($3.size == 4)
+      year ||= "19#{$3}" if($3.to_i > (Date.today.year % 2000))
+      year ||= "20#{$3}"
+
+      logger.warn [$1,$2,year].join("/")
+      super Chronic.parse([$1,$2,year].join("/"))
+    when String
       super Chronic.parse(date)
     else
       super

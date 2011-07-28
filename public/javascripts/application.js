@@ -31,4 +31,6 @@ $(function(){
       }
     }
   });
+
+  $("#receipt_name").focus();
 });

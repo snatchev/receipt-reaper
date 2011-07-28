@@ -37,7 +37,7 @@
           <td class='Location'><%= receipt.name || 'N/A' %></td>
           <td class='Category'><%= receipt.category %></td>
           <td class="Price money"><%= "$%0.2f" % receipt.amount rescue nil %></td>
-          <td class="Account"><%= receipt.account %></td>
+          <td class="Account padded"><%= receipt.account %></td>
           <td class="notes">
             <%= receipt.notes %>
             <div class="nubbin">

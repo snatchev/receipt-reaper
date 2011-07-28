@@ -47,6 +47,7 @@ table tr.odd { background-color: #fff8ee;}
 table .money {
   text-align: right;
 }
+table .padded { padding-left: 1.2em;}
 
 .left-col {
   float: left;

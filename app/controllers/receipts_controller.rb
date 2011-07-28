@@ -1,10 +1,7 @@
 class ReceiptsController < ApplicationController
+  before_filter :get_data, :only => ['index', 'edit']
+
   def index
-    @receipt = Receipt.new
-    @receipts = Receipt.order(params[:sort]).all
-    @accounts = Account.all
-    @accounts << Account.new(:name => "-- Add New --")
-    @total = Receipt.sum(:amount)
   end
 
   def create
@@ -12,17 +9,13 @@ class ReceiptsController < ApplicationController
     if @receipt.save
       redirect_to receipts_path
     else
-      @receipts = Receipt.all
+      get_data
       render :action => 'index'
     end
   end
 
   def edit
     @receipt = Receipt.find(params[:id])
-    @receipts = Receipt.all
-    @accounts = Account.all
-    @accounts << Account.new(:name => "-- Add New --")
-    @total = Receipt.sum(:amount)
     render :action => 'index'
   end
 
@@ -31,7 +24,7 @@ class ReceiptsController < ApplicationController
     if @receipt.update_attributes(params[:receipt])
       redirect_to receipts_path
     else
-      @receipts = Receipt.all
+      get_data
       render :action => 'index'
     end
   end
@@ -40,6 +33,18 @@ class ReceiptsController < ApplicationController
     @receipt = Receipt.find(params[:id])
     @receipt.destroy
     redirect_to receipts_path
+  end
+
+  private
+
+  def get_data
+    @receipt ||= Receipt.new
+    @receipts = Receipt.order(params[:sort]).all
+    @accounts = Account.all
+    @accounts << Account.new(:name => "-- Add New --")
+    @categories = Category.all
+    @categories << Category.new(:name => "-- Add New --")
+    @total = Receipt.sum(:amount) / 100.0
   end
 
 end

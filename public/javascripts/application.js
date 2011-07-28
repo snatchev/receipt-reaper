@@ -2,7 +2,7 @@ $(function(){
   //TODO: extract common behaviour
   $('#receipt_category_id').change(function(){
     var $self = $(this);
-    if($self.val() == "Add New"){
+    if($self.find(":selected").text() == "-- Add New --"){
       var categoryName = prompt("Category name");
       if(categoryName != null && categoryName != ""){
         $.post('/categories', {'category[name]': categoryName}, function(data){

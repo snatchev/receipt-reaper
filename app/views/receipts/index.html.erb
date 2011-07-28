@@ -4,11 +4,11 @@
     <%= f.text_field :name, :class =>"w100", :placeholder => "Where was your purchase?" %>
     <br/>
     <%= f.label :purchase_date, "Date" %>
-    <%= f.text_field :purchase_date, :class =>"w66", :placeholder =>"mm/dd/yyyy" %>
+    <%= f.text_field :purchase_date, :class =>"w66", :placeholder =>"mm/dd/yyyy", :value => @receipt.purchase_date && @receipt.purchase_date.strftime("%m/%d/%Y") %>
     <%= f.label :amount, 'Price' %>
     <%= f.text_field :amount, :class =>"w34", :placeholder =>"$0.00" %>
     <br/>
-    <%= category_select(Category.all) %>
+    <%= f.collection_select :category_id, @categories, :id, :name, {:prompt => '-- select category', :include_blank => true } %>
     <%= f.collection_select :account_id, @accounts, :id, :name, {:prompt => '-- select account --', :include_blank => true} %>
     <br/>
     <%= f.text_field :notes, :class =>"w100", :placeholder =>"write notes here..." %>

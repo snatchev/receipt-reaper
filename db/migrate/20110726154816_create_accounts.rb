@@ -1,6 +1,6 @@
 class CreateAccounts < ActiveRecord::Migration
   def self.up
-    create_table :accounts do |t|
+    create_table :accounts, :force => true do |t|
       t.string :name
       t.timestamps
     end
